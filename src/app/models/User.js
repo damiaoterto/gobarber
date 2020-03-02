@@ -25,7 +25,7 @@ class User extends Model {
     return this;
   }
 
-  static associate(models) {
+  static associate(model) {
     this.belongsTo(model.File, { foreignKey: 'avatar_id' });
   }
 
