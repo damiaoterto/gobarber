@@ -4,6 +4,7 @@ import multer from 'multer';
 import multerConfig from './config/multer';
 
 import AppointmentController from './app/http/controllers/AppointmentController';
+import AvaliableController from './app/http/controllers/AvaliableController';
 import UserController from './app/http/controllers/auth/UserController';
 import ProviderController from './app/http/controllers/ProviderController';
 import SessionController from './app/http/controllers/auth/SessionController';
@@ -28,9 +29,11 @@ route.use(authMiddleware);
 route.put('/user', UserController.update);
 
 route.get('/providers', ProviderController.index);
+route.get('/providers/:providerId/avaliable', AvaliableController.index);
 
 route.get('/appointments', AppointmentController.index);
 route.post('/appointments', AppointmentController.store);
+route.delete('/appointments/:id', AppointmentController.delete);
 
 route.get('/schedules', ScheduleController.index);
 
